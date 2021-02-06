@@ -11,13 +11,7 @@ npm i wc-mermaid
 ## Usage
 
 ```html
-<wc-mermaid>
-  graph TD;
-    A --> B;
-    A --> C;
-    B --> D;
-    C --> D;
-</wc-mermaid>
+<wc-mermaid> graph TD; A --> B; A --> C; B --> D; C --> D; </wc-mermaid>
 
 <script type="module" src="wc-mermaid/wc-mermaid.js"></script>
 ```

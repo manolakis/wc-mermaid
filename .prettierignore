@@ -1,0 +1,5 @@
+coverage/
+dist/
+storybook-static/
+CHANGELOG.md
+.changeset/
