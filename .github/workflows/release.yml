@@ -39,6 +39,9 @@ jobs:
       - name: Install Dependencies
         run: yarn --frozen-lockfile
 
+      - name: Generate types
+        run: yarn types
+
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@master

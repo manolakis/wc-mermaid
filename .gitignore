@@ -20,4 +20,9 @@
 /dist/
 /out-tsc/
 
+# storybook
 /storybook-static/
+
+# types
+/types/
+tsconfig.build.types.tsbuildinfo

@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": ["es2020", "dom"],
+    "allowJs": true,
+    "composite": true,
+    "checkJs": true,
+    "emitDeclarationOnly": true,
+    "strict": false,
+    "alwaysStrict": true,
+    "noImplicitThis": true,
+    "types": [],
+    "esModuleInterop": true,
+    "suppressImplicitAnyIndexErrors": true
+  },
+  "include": ["**/*.js"],
+  "exclude": [
+    "node_modules",
+    "test",
+    "coverage",
+    "dist",
+    "docs",
+    "demo",
+    "stories",
+    ".changeset",
+    ".github",
+    ".storybook",
+    "storybook-static",
+    "commitlint.config.js"
+  ]
+}
