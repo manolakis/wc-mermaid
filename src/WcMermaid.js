@@ -1,9 +1,14 @@
 import 'mermaid/dist/mermaid';
 
 const {
+  // @ts-ignore
   mermaid: { mermaidAPI },
 } = window;
 
+/**
+ * WcMermaid
+ * @class
+ */
 export class WcMermaid extends HTMLElement {
   constructor() {
     super();
@@ -17,26 +22,43 @@ export class WcMermaid extends HTMLElement {
     });
   }
 
+  /**
+   * @returns {ChildNode[]}
+   * @private
+   */
   get __textNodes() {
     return Array.from(this.childNodes).filter(
       node => node.nodeType === this.TEXT_NODE
     );
   }
 
+  /**
+   * @returns {string}
+   * @private
+   */
   get __textContent() {
-    return this.__textNodes.map(node => node.textContent.trim()).join('');
+    return this.__textNodes.map(node => node.textContent?.trim()).join('');
   }
 
   __renderGraph() {
+    /** @type {Promise<void>} */
     this.updated = new Promise(resolve => {
       try {
         if (this.__textContent !== '') {
-          mermaidAPI.render('graph', this.__textContent, svg => {
-            this.shadowRoot.innerHTML = svg;
-            resolve();
-          });
+          mermaidAPI.render(
+            'graph',
+            this.__textContent,
+            /** @param {string} svg */ svg => {
+              if (this.shadowRoot) {
+                this.shadowRoot.innerHTML = svg;
+              }
+              resolve();
+            }
+          );
         } else {
-          this.shadowRoot.innerHTML = '';
+          if (this.shadowRoot) {
+            this.shadowRoot.innerHTML = '';
+          }
           resolve();
         }
       } catch (_) {
@@ -60,7 +82,9 @@ export class WcMermaid extends HTMLElement {
   }
 
   __cleanTextNodeObservers() {
-    this.__textNodeObservers.forEach(observer => observer.disconnect());
+    if (this.__textNodeObservers) {
+      this.__textNodeObservers.forEach(observer => observer.disconnect());
+    }
   }
 
   connectedCallback() {
@@ -75,6 +99,10 @@ export class WcMermaid extends HTMLElement {
 
   disconnectedCallback() {
     this.__cleanTextNodeObservers();
-    this.__observer.disconnect();
+
+    if (this.__observer) {
+      this.__observer.disconnect();
+      this.__observer = null;
+    }
   }
 }
