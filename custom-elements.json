@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "tags": [
+    {
+      "name": "wc-mermaid",
+      "description": "Allows to draw SVG diagrams with Mermaid",
+      "properties": [],
+      "events": [],
+      "slots": [],
+      "cssProperties": []
+    }
+  ]
+}
