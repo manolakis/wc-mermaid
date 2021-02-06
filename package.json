@@ -1,6 +1,6 @@
 {
   "name": "wc-mermaid",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Webcomponent wc-mermaid following open-wc recommendations",
   "license": "MIT",
   "repository": {
