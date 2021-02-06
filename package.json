@@ -27,6 +27,7 @@
     "lint:eslint": "eslint --ext .js,.html . --ignore-path .gitignore",
     "lint:markdown": "git ls-files '*.md' | xargs markdownlint --ignore '{.changeset/*.md,**/CHANGELOG.md}'",
     "lint:prettier": "prettier \"**/*.{js,json,md}\" --check",
+    "release": "changeset publish",
     "start": "web-dev-server",
     "storybook": "web-dev-server -c .storybook/server.mjs",
     "storybook:build": "build-storybook",
