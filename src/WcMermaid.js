@@ -1,4 +1,4 @@
-import 'mermaid/dist/mermaid';
+import 'mermaid/dist/mermaid.js';
 
 const {
   // @ts-ignore
