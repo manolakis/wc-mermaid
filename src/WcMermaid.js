@@ -1,9 +1,6 @@
-import 'mermaid/dist/mermaid.js';
+import mermaid from 'mermaid';
 
-const {
-  // @ts-ignore
-  mermaid: { mermaidAPI },
-} = window;
+const mermaidAPI = mermaid.mermaidAPI;
 
 /**
  * WcMermaid
